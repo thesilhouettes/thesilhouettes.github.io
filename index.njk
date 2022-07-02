@@ -1,0 +1,35 @@
+---
+title: Silhouette | Home
+---
+{% include "base.njk" %}
+
+{% block main %}
+<h1>Introduction</h1>
+<p>Welcome stranger, here is <span class="text-primary">TheSilhouette</span>.
+What is TheSilhouette you ask? It is just a name that I like to use on the
+Internet.
+<p>
+  This site stores my writings, rants and miscellaneous pages. Always take
+  anything in this site with a grain of salt.
+</p>
+<h1>Featured</h1>
+  {% for post in search.pages("featured=true", "date=desc") %}
+    {{ comp.entry({ post: post }) | safe }}
+  {% endfor %}
+<p>The essence of a blog.</p>
+<h1>Tags</h1>
+<p>
+  By clicking on a tag, you will be transported to a page which only shows posts
+  that have such tag.
+</p>
+{% include "tags.njk" %}
+<h1>Latest Posts</h1>
+<p>This shows my latest fifteen posts</p>
+<div class="posts">
+  {% for post in search.pages("isPost=true", "date=desc", 15) %}
+    {{ comp.entry({ post: post }) | safe }}
+  {% endfor %}
+</div>
+<a href="/all">Read All Posts</a>
+</body>
+{% endblock %}

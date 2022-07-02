@@ -1,0 +1,11 @@
+---
+title: All Posts
+---
+{% extends "base.njk" %}
+
+{% block main %}
+  <p>Here are all the posts.</p>
+  {% for post in search.pages("isPost=true") %}
+    {{ comp.entry({ post: post }) | safe }}
+  {% endfor %}
+{% endblock %}

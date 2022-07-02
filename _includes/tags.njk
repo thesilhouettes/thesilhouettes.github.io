@@ -1,0 +1,3 @@
+{% for tag in search.tags() %}
+  {{ comp.tag({ tag: tag }) | safe }}
+{% endfor %}
