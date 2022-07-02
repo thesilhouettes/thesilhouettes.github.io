@@ -5,9 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chiron-hei-hk-webfont@2.5.2/css/vf.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
   </head>
   <body>
-    {% block main %} {% endblock %}
-    {% block footer %} {% include "footer.njk" %} {% endblock %}
+    <main>
+      {% block main %}
+        {# why does this come last #}
+      {% endblock %}
+    </main>
+    {% block footer %}
+      {% include "footer.njk" %}
+    {% endblock %}
   </body>
 </html>

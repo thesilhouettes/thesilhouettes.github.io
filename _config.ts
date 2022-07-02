@@ -10,6 +10,9 @@ const site = lume({
   },
 });
 
+site.copy("assets");
+site.copy("styles");
+
 site.use(code_highlight());
 site.use(imagick());
 site.use(sass());
