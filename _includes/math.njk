@@ -1,0 +1,15 @@
+{% extends "base.njk" %}
+
+{% block additional_styles %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.css" integrity="sha384-1IGr2Yb8xuHjwTG+WoGjj2+I/a/N6z0gDD5YIGCQxywPROOKc3+orbn/R7arWQxD" crossorigin="anonymous">
+{% endblock %}
+
+{% block main %}
+  <main>
+    <h1>{{ title }}</h1>
+    <div class="post">
+      {{ content | safe }}
+    </div>
+  </main>
+  {{ comp.post_nav() | safe }}
+{% endblock %}

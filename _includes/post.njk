@@ -7,9 +7,5 @@
       {{ content | safe }}
     </div>
   </main>
-  <section class="nav">
-    <a href="/">Go Back Home</a>
-    <h2>Other Tags</h2>
-    {% include "tags.njk" %}
-  </secion>
+  {{ comp.post_nav() | safe }}
 {% endblock %}

@@ -1,0 +1,7 @@
+  <div class="posts">
+    <ul>
+      {% for post in search.pages("isPost=true") %}
+        {{ comp.entry({ post: post }) | safe }}
+      {% endfor %}
+    </ul>
+  </div>

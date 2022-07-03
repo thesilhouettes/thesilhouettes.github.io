@@ -1,3 +1,5 @@
+import bracketSpan from "https://jspm.dev/markdown-it-bracketed-spans";
+import texMath from "https://jspm.dev/markdown-it-texmath";
 import lume from "lume/mod.ts";
 import code_highlight from "lume/plugins/code_highlight.ts";
 import date from "lume/plugins/date.ts";
@@ -5,11 +7,19 @@ import imagick from "lume/plugins/imagick.ts";
 import sass from "lume/plugins/sass.ts";
 import search from "lume/plugins/search.ts";
 
-const site = lume({
-  server: {
-    page404: "./404.html",
+const site = lume(
+  {
+    server: {
+      page404: "./404.html",
+    },
   },
-});
+  {
+    markdown: {
+      plugins: [texMath, bracketSpan],
+      keepDefaultPlugins: true,
+    },
+  }
+);
 
 site.copy("assets");
 site.copy("styles");
