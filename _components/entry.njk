@@ -1,6 +1,6 @@
-<div class="entry">
-  <a href="{{ post.data.url }}">
-    <span class="entry-title">{{ post.data.title }}</span>
-    <span class="entry-date">{{ post.data.date }}</span>
-  </a>
-</div>
+<li class="entry">
+    <a href="{{ post.data.url }}">
+        <span class="entry-title">{{ post.data.title }}</span>
+        <span class="entry-date">{{ post.data.date | date("BRIT_DATE") }}</span>
+    </a>
+</li>

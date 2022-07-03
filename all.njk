@@ -5,7 +5,5 @@ title: All Posts
 
 {% block main %}
   <p>Here are all the posts.</p>
-  {% for post in search.pages("isPost=true") %}
-    {{ comp.entry({ post: post }) | safe }}
-  {% endfor %}
+  {{ comp.all_posts() | safe }}
 {% endblock %}

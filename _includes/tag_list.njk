@@ -1,8 +1,13 @@
 {% extends "base.njk" %}
 
 {% block main %}
-  <h1>All posts that are tagged with <span class="text-primary">{{ tag }}<span></h1>
-  {% for post in search.pages(tag, "date=desc") %}
-    {{ comp.entry({ post: post }) | safe }}
-  {% endfor %}
+  <h1>All posts that are tagged with <span class="text-primary bold">{{ tag }}<span></h1>
+  <div class="posts">
+    <ul>
+        {% for post in search.pages(tag, "date=desc") %}
+          {{ comp.entry({ post: post }) | safe }}
+        {% endfor %}
+      </ul>
+  </div>
+
 {% endblock %}
