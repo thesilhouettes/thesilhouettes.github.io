@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lume, the static site generator (first post!)</title>
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chiron-hei-hk-webfont@2.5.2/css/vf.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/papercolour.css">
+     
+  </head>
+  <body>
+    <main>
+      
+  <h1>Lume, the static site generator (first post!)</h1>
+  <p class="text-dim">published in 03/07/2022</p>
+  <div class="post">
+    <h1>Introduction</h1>
+<p>Yes, this is my first post and I am very excited. For the next couple days, the
+reader may see a half-dozen of posts. Why? I have scribbled some posts before I
+started this site, and I am planing on releasing them. The dates in this website
+are just publish dates.</p>
+<h1>Lume</h1>
+<p>Back to topic. What is Lume? Lume is a static site generator. You may be
+wondering why another SSG since there are loads of them in the market. However,
+Lume is pretty special since this is the first, and probably the only SSG
+written in Deno.</p>
+<h1>Interlude: Deno</h1>
+<p>In case you have not heard of Deno, it is a rewrite of Node. Due to Node's popularity, people have been creating packages and uploading them to npm relentlessly. I have heard people playing "drinking games", which they will pick an English word to see if it corresponds to a javascript library, if it is they need to drink a cup of water (or whatever).</p>
+<p>With this immense amount of packages, a problem thus emerges. The quality of the
+programs vary. The worse thing is that some people release malicious programs
+(!!)
+(see <a href="https://www.lunasec.io/docs/blog/node-ipc-protestware/">this protestware</a>)</p>
+<p>So Mr. Ryan Dahl, the man behind Node.js, developed Deno. It</p>
+<ul>
+<li>is secure by default. You need permissions to access the file system and make HTTP requests etc.</li>
+<li>does not use NPM so no more <code>node_modules</code>, everything is imported by URL</li>
+<li>runs TypeScript programs without transpilation</li>
+</ul>
+<p>To be honest I do not really care about if Lume is written for Deno. Finding
+third-party modules in Deno is not so easy compared to Node. I had to use some
+magic to include packages from NPM for markdown plugins. (see <code>_config.ts</code>)</p>
+<h1>Is Lume Great?</h1>
+<p>Absolutely. It is my greatest joy to write in TypeScript instead of JavaScript.
+I just never understand the rationale behind dynamic-typed languages. Deno is
+such a live saver for me.</p>
+<p>Some people write their blogs with React or some heavy JavaScript frameworks.
+With Lume, you only output pure HTML (and your assets), say goodbye to single
+page soy-dev "blogs". Can you imagine writing a blog with Gatsby?? Eww. (just
+kidding, Gatsby is designed for large sites, not poor little blogs)</p>
+<p>By default Lume uses Nunjucks as their templating engine. I never liked
+templating HTML but this is an inescapable step if you are writing static sites.
+At least, Nunjucks works great for me. I do not have any special about Nunjucks
+since every templating engine looks similar.</p>
+<p>The documentation is too terse. Sometimes I just hope they can explain more and
+provide some examples. Occasionally I have to dump the variables to HTML (by the
+way Nunjucks is very good at doing so) and figure out the properties.</p>
+<h1>Final Words</h1>
+<p>I have spent the past two days writing this site, and it is already done. Now, I
+just need to deploy it and hope the styles do not mess up. I have linked the
+homepage of Lume in the footer. If you are interested, definitely try to build
+sites with Lume. You will probably like it more than Eleventy or Jekyll.</p>
+
+  </div>
+  <section class="nav">
+  <a href="/">Go Back Home</a>
+  <h2>Other Tags</h2>
+  <ul class="tags">
+
+  <div class="tag">
+  <a href="/tags/programming">
+    <span class="tag-name">programming</span>
+    <span class="tag-count">1</span>
+  </a>
+</div>
+
+</ul>
+
+
+    </section></main>
+    
+      <footer>
+  <p>
+    Do you know that this site is built by
+    <a href="https://lume.land/">Lume</a>,
+    a fantastic static site generator. The source of this site is located in
+    <a href="https://github.com/thesilhouettes/thesilhouettes.github.io">here</a>
+  </p>
+  <p>If you like my posts, add <a href="/rss.xml">this</a> to your RSS reader.</p>
+</footer>
+
+    
+  
+
+</body></html>
