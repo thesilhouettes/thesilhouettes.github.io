@@ -2,6 +2,7 @@
   "importMap": "import_map.json",
   "tasks": {
     "lume": "deno eval \"import 'lume/task.ts'\" --",
-    "serve": "deno task lume -s"
+    "serve": "deno task lume -s",
+    "new": "deno run --allow-write --allow-read archetype.ts"
   }
 }

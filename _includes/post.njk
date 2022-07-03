@@ -1,11 +1,10 @@
 {% extends "base.njk" %}
 
 {% block main %}
-  <main>
-    <h1>{{ title }}</h1>
-    <div class="post">
-      {{ content | safe }}
-    </div>
-  </main>
+  <h1>{{ title }}</h1>
+  <p class="text-dim">published in {{ date | date("BRIT_DATE") }}</p>
+  <div class="post">
+    {{ content | safe }}
+  </div>
   {{ comp.post_nav() | safe }}
 {% endblock %}
