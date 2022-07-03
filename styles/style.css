@@ -61,9 +61,15 @@ a:hover,
 a:hover span {
   color: var(--clr-primary);
   transition: color 0.2s ease-in-out 0s;
+  transition: text-decoration-color 0.2s ease-in-out 0s;
+  text-decoration-color: var(--clr-primary);
 }
 
-a:visited,
+a:visited {
+  text-decoration-color: var(--clr-primary);
+  color: var(--clr-primary);
+}
+
 a {
   color: var(--clr-text);
 }
@@ -89,6 +95,7 @@ span[class^="hljs"] {
 
 p,
 a,
+ul, li
 /* spans that are not inside equations */
 span:not(eqn span, eq span) {
   font-family: var(--sans-serif);
@@ -142,6 +149,15 @@ POST
   background-size: cover;
   display: block;
   margin: 2rem auto;
+}
+
+.post ul {
+  list-style-type: disc;
+  margin: 2.5rem 0;
+}
+
+.post ul > * + * {
+  margin-top: 0.5rem;
 }
 
 /*

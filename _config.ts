@@ -32,6 +32,8 @@ site.use(
   date({
     formats: {
       BRIT_DATE: "dd/MM/yyyy",
+      // e.g. 2003-12-13T18:30:02Z
+      RSS_ATOM_DATE: "yyyy-MM-dd'T'HH:mm:ssxxxxx",
     },
   })
 );
