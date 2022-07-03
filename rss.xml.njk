@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>World of TheSilhouette</title>
+  <link href="https://thesilhouettes.github.io/"/>
+  <updated>{{ date | date("RSS_ATOM_DATE") }}</updated>
+  <author>
+    <name>TheSilhouette</name>
+  </author>
+
+  {% for post in search.pages("isPost=true") %}
+    <entry>
+      <title>{{ post.data.title }}</title>
+      <link href="{{ post.data.url }}"/>
+      <published>{{ date | date("RSS_ATOM_DATE") }}</published>
+      <content>{{ post.data.content }}</content>
+    </entry>
+  {% endfor %}
+
+</feed>
