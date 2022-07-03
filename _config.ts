@@ -12,6 +12,7 @@ const site = lume(
     server: {
       page404: "./404.html",
     },
+    location: new URL("https://thesilhouettes.github.io"),
   },
   {
     markdown: {
