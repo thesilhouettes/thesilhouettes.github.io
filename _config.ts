@@ -35,6 +35,7 @@ site.use(
       BRIT_DATE: "dd/MM/yyyy",
       // e.g. 2003-12-13T18:30:02Z
       RSS_ATOM_DATE: "yyyy-MM-dd'T'HH:mm:ssxxxxx",
+      RSS_ATOM_SHORT: "yyyy-MM-dd",
     },
   })
 );

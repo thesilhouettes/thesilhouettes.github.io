@@ -12,7 +12,7 @@
     <entry>
       <title>{{ post.data.title }}</title>
       <link href="{{ post.data.url }}"/>
-      <published>{{ date | date("RSS_ATOM_DATE") }}</published>
+      <published>{{ post.data.date | date("RSS_ATOM_SHORT") }}</published>
       <content>{{ post.data.content }}</content>
     </entry>
   {% endfor %}
