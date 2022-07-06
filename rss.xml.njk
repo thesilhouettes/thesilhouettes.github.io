@@ -8,11 +8,11 @@
     <name>TheSilhouette</name>
   </author>
 
-  {% for post in search.pages("isPost=true") %}
+  {% for post in search.pages("isPost=true", "date=desc", 50) %}
     <entry>
       <title>{{ post.data.title }}</title>
       <link href="{{ post.data.url }}"/>
-      <published>{{ post.data.date | date("RSS_ATOM_SHORT") }}</published>
+      <pubDate>{{ post.data.date | date("RSS_ATOM_SHORT") }}</pubDate>
       <content>{{ post.data.content }}</content>
     </entry>
   {% endfor %}

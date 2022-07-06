@@ -9,6 +9,7 @@ const tags = [
   "culture",
   "language",
   "games",
+  "others",
 ];
 
 export default function* () {
