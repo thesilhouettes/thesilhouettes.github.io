@@ -1,8 +1,9 @@
 export const layout = "tag_list.njk";
 
 const tags = [
-  "computing",
+  "software",
   "programming",
+  "computer science",
   "math",
   "fun",
   "music",
