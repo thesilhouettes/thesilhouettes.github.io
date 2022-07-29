@@ -70,7 +70,10 @@ a:visited {
   color: var(--clr-primary);
 }
 
-a {
+a,
+ul,
+li,
+ol {
   color: var(--clr-text);
 }
 
@@ -95,7 +98,7 @@ span[class^="hljs"] {
 
 p,
 a,
-ul, li
+ul, ol, li
 /* spans that are not inside equations */
 span:not(eqn span, eq span) {
   font-family: var(--sans-serif);
@@ -110,6 +113,11 @@ span.u {
 span.s {
   text-decoration: underline wavy;
   text-underline-offset: 2px;
+}
+
+blockquote {
+  padding-left: 1rem;
+  border-left: 4px solid var(--clr-text-dim);
 }
 
 /*
