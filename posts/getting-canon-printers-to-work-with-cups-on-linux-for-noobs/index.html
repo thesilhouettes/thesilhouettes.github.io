@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Canon Printers to Work With Cups On Linux For Noobs</title>
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chiron-hei-hk-webfont@2.5.2/css/vf.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/papercolour.css">
+     
+  </head>
+  <body>
+    <main>
+      
+  <h1>Getting Canon Printers to Work With Cups On Linux For Noobs</h1>
+  <p class="text-dim">published in 19/07/2022</p>
+  <div class="post">
+    <h2>Introduction</h2>
+<p>There is a canon printer at my home for some months already, but I haven't used
+in since last week. I thought you cannot print papers using my machine since Canon do
+not have any support for Linux. Actually I was wrong, and there is a very good
+amount of Canon drivers in the Arch User Repository. So here it is, a guide for
+those who do not know anything about (Canon) printers (of course I am one of
+them).</p>
+<h2>CUPS</h2>
+<p>Most Linux user will use CUPS, which is an open-source printing system. With
+that you can issue commands to your printer. You can do that with the CLI, or
+with the web interface. First though, you have to install CUPS. If you are using
+a desktop environment, CUPS is already installed. If you are using a standalone
+tiling window manager (that's a mouthful, I will just call it WM). Just install
+<code>cups</code> with your package manager.</p>
+<p>You have to start the CUPS service if you want to print. I am on Arch, so it is
+activated by systemd with <code>sudo systemctl enable --now cups</code>.</p>
+<h2>Network Printers</h2>
+<p>If the printer is connected to your computer, then it should be simpler.
+However, if you are using printers that are connected to your LAN, then things
+become trickier.</p>
+<p>I am not going to pretend I understand anything here, so I just quote two arch
+wiki pages:</p>
+<blockquote>
+<p>To discover, make use of discovered or share printers using DNS-SD/mDNS, setup
+.local hostname resolution with Avahi and restart cups.service.</p>
+</blockquote>
+<blockquote>
+<p>Avahi provides local hostname resolution using a "hostname.local" naming
+scheme. To enable it, install the nss-mdns package and start/enable
+avahi-daemon.service.</p>
+</blockquote>
+<p>So there are a few steps we have to do:</p>
+<ul>
+<li>edit <code>/etc/nsswitch.conf</code> and change the following line from:</li>
+</ul>
+<pre><code class="language-txt hljs language-plaintext">hosts: mymachines resolve [!UNAVAIL=return] files myhostname dns
+</code></pre>
+<p>to</p>
+<pre><code class="language-txt hljs language-plaintext">hosts: mymachines mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] files myhostname dns
+</code></pre>
+<ul>
+<li>restart <code>avahi</code> and <code>cups</code></li>
+</ul>
+<h2><code>system-config-printer</code> GUI</h2>
+<p>I have originally written some command line instructions, but later wrote this
+one instead. The command line instruction below barely works and the default
+CUPS web interface is broken. We will use a GUI application that works out of the box
+instead. Install <code>system-config-printer</code> onto your computer and open it.</p>
+<p>It looks a bit like the GNOME printer settings, but actually works. Here are the
+steps you need:</p>
+<ol>
+<li>Give yourself sudo privileges</li>
+<li>Click the add button</li>
+<li>Click "find network printers" on the left sidebar</li>
+<li>Enter the IP of that printer.</li>
+<li>Lots of results will show. It will fill out the connection string, name,
+description and so on. <strong>You don't have to enter any of that</strong>.</li>
+</ol>
+<p>Of course, you should enable cups, avahi first and install the drivers first. I
+am not sure if <code>system-config-printer</code> will assist you to do these things. As I
+have said above, it works every time I restart the printer or reboot my machine.</p>
+<h2>About the Default CUPS Interface</h2>
+<p>If you hate <code>system-config-printer</code> for some reason, you can still access the
+page at <code>localhost:631</code>. It barely works for me, printing test pages work but
+for normal documents it is broken. Also, the user interface is elusive. They
+include the operations in a dropdown list but not buttons. I have never used it
+ever since I know <code>system-config-printer</code>.</p>
+<p>To be clear I am not bashing the developers of that web application, since there
+is a higher chance that I have configured something wrong. How much do I know
+about printers and drivers? None. Your grandma probably knows more about
+printers than me. Go try it yourself and see if it works.</p>
+<h2>Printing in Zathura</h2>
+<p>Do you know zathura accepts commands? Just like vim, you can type <code>:</code> and hit
+<code>&lt;Tab&gt;</code>. A menu will show the commands that are inside zathura. For me, commands
+like "help" and "info" shows nothing. Is it a bug? Anyway, the object today is
+<code>:print</code>, not other commands. To print, type <code>:print</code>. A printing dialog will be
+shown. It is quite unfortunate that this command do not receive other arguments.
+It would be so useful if we can supply a page address (e.g. <code>:1,3print</code>) to the
+command. You can print with CUPS on the command line anyway, so it is not a huge
+problem.</p>
+
+  </div>
+  <section class="nav">
+  <a href="/">Go Back Home</a>
+  <h2>Other Tags</h2>
+  <ul class="tags">
+
+  <div class="tag">
+  <a href="/tags/others">
+    <span class="tag-name">others</span>
+    <span class="tag-count">1</span>
+  </a>
+</div>
+
+  <div class="tag">
+  <a href="/tags/programming">
+    <span class="tag-name">programming</span>
+    <span class="tag-count">1</span>
+  </a>
+</div>
+
+  <div class="tag">
+  <a href="/tags/games">
+    <span class="tag-name">games</span>
+    <span class="tag-count">1</span>
+  </a>
+</div>
+
+  <div class="tag">
+  <a href="/tags/software">
+    <span class="tag-name">software</span>
+    <span class="tag-count">2</span>
+  </a>
+</div>
+
+</ul>
+
+
+    </section></main>
+    
+      <footer>
+  <p>
+    Do you know that this site is built by
+    <a href="https://lume.land/">Lume</a>,
+    a fantastic static site generator. The source of this site is located in
+    <a href="https://github.com/thesilhouettes/thesilhouettes.github.io">here</a>
+  </p>
+  <p>If you like my posts, add <a href="/rss.xml">this</a> to your RSS reader.</p>
+</footer>
+
+    
+  
+
+</body></html>
